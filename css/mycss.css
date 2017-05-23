@@ -1,0 +1,56 @@
+.error{
+  color: red;
+}
+
+.btn-time{
+  max-width: 45px;
+}
+.x {
+  align-items: center;
+  max-width: 70px;
+}
+
+main {
+  margin-top: 60px;
+}
+
+.topo {
+  border: 3px solid #009688 ;
+}
+
+.btn-menu {
+  width: 200px;
+}
+
+.espaco {
+  padding: 10px;
+  width: 100%;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+
+.divider1 {
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  background-color: #009688 ;
+}
+
+#jogos{
+  width: 100%;
+  height: 320px;
+  overflow-x : scroll;
+}
+
+#hanking{
+  width: 100%;
+  height: 320px;
+  overflow-x : scroll;
+}
+
+#timeAtleta {
+  width: 100%;
+  height: 400px;
+  overflow-x : scroll;
+}

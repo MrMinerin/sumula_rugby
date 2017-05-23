@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="../css/materialize.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudfire.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css"> -->
+  <link rel="stylesheet" href="../css/mycss.css">
+  <title>Súmula</title>
+</head>
+<body>
+  <header>
+    <div class="fixed">
+      <nav class="teal z-depth-5">
+        <div class="nav-wraper">
+          <a href="#" class="brand-logo center">Rugby</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+      <div class="row container">
+        <div class="col s12 m8 l6 offset-m2 offset-l3 topo z-depth-5">
+          <h4 class="center-align">Login</h4>
+          <li class="divider1"></li>
+          <div class="row">
+            <form id="indent" class="col s12" name="login">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="usuario" type="text" name="usuario" class="validate">
+                  <label for="usuario">Usuário</label>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">vpn_key</i>
+                  <input id="senha" type="password" name="senha" class="validate">
+                  <label for="senha">Senha</label>
+                </div>
+                <div class="center-align">
+                  <button class="btn waves-effect waves-light" type="button" name="action" id="entrar">Entrar
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div><button class="btn waves-effect waves-light" id="anonimo">Anônimo</button></div>
+          <div class="center-align">
+            <p id="incorreta" class="red-text"></p>
+          </div>
+
+        </div>
+
+      </div>
+  </main>
+
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script type="text/javascript" src="../banco/conexao.js"></script>
+  <script type="text/javascript" src="../js/login.js"></script>
+
+</body>
+</html>
