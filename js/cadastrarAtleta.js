@@ -106,7 +106,3 @@ function listar(tabelName){
 //   //   alert ($('#nascimento').val());
 //   // });
 // })
-
-$(document).ready(function() {
-  $('select').material_select();
-});
