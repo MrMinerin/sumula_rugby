@@ -1,7 +1,7 @@
-window.addEventListener("load", showJogos(JSON.parse(localStorage.getItem('Jogos'))), false);
+// window.addEventListener("load", showJogos(JSON.parse(localStorage.getItem('Jogos'))), false);
 // window.addEventListener("load", showTimes(JSON.parse(localStorage.getItem('Times'))), false);
-window.addEventListener("load", hanking(JSON.parse(localStorage.getItem('Times'))), false);
-window.addEventListener("load", mostrarAtletas(JSON.parse(localStorage.getItem('Atletas'))), false);
+// window.addEventListener("load", hanking(JSON.parse(localStorage.getItem('Times'))), false);
+// window.addEventListener("load", mostrarAtletas(JSON.parse(localStorage.getItem('Atletas'))), false);
 
 // -----------------------------------Carregar Jogos-----------------------------------------
 

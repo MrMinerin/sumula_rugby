@@ -13,7 +13,7 @@ function editTime(){
     $('#cnpj').val(item.val().cnpj);
     $('#nomeResponsavel').val(item.val().responsavel);
     $('#cpfResponsavel').val(item.val().cpf);
-    $('label').addClass('active')
+    $('label').addClass('active');
   });
 
   $ (document).ready(function(){

@@ -25,6 +25,8 @@
           <a href="#" class="brand-logo center">Rugby</a>
           <ul class="right hide-on-med-and-down">
             <li><a href="view.html">Início</a></li>
+            <li><a href="view_times.html">Times</a></li>
+            <li><a href="view_atletas.html">Atletas</a></li>
             <!-- Dropdown Trigger -->
             <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Cadastrar<i class="material-icons right">arrow_drop_down</i></a></li>
           </ul>
@@ -32,6 +34,21 @@
       </nav>
     </div>
   </header>
+
+  <div class="preloader-background">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main>
     <div class="row container">
       <div class="col s12 topo z-depth-5">
@@ -69,12 +86,13 @@
     <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script type="text/javascript" src="../banco/conexao.js"></script>
+    <script type="text/javascript" src="../js/animation.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/editarTime.js"></script>
     <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
     <script type="text/javascript">
-      $('#cpfResponsavel').mask('999.999.999-99', {reverse: true});
-      $('#cnpj').mask('999.999.999/999-999', {reverse: true});
+      $('#cpfResponsavel').mask('999.999.999-99');
+      $('#cnpj').mask('999.999.999/999-999');
       $(document).ready(function (){
         $(".dropdown-button").dropdown();
       })
