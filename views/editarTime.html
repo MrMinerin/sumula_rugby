@@ -40,25 +40,22 @@
 
 
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="nomeTime" class="validate" required>
+            <input type="text" id="nomeTime" name="nome" class="validate" required>
             <label for="nomeTime">Nome</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="cnpj" class="validate" required>
+            <input type="text" id="cnpj" name="cnpj" class="validate" required>
             <label for="cnpj">CNPJ</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="nomeResponsavel" class="validate" required>
+            <input type="text" id="nomeResponsavel" name="responsavel" class="validate" required>
             <label for="nomeResponsavel">Nome do Responśavel</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="cpfResponsavel" class="validate" required>
+            <input type="text" id="cpfResponsavel" name="cpf" class="validate" required>
             <label for="cpfResponsavel">CPF do Responsável</label>
           </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Alterar
-            <i class="material-icons right">send</i>
-          </button>
-          <button class="btn waves-effect waves-light offset-s6" type="button" onclick="excluir()"name="action">Exluir
+          <button class="btn waves-effect waves-light add" type="button" name="action">Alterar
             <i class="material-icons right">send</i>
           </button>
           <li class="espaco"></li>
@@ -70,6 +67,8 @@
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="../banco/conexao.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/editarTime.js"></script>
     <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>

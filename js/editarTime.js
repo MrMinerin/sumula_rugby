@@ -3,46 +3,47 @@ var id;
 
 function editTime(){
   id = window.location.hash.substring(1);
-  times = JSON.parse(localStorage.getItem('Times'));
-  $('#nomeTime').val(times[id].nome)
-  $('#cnpj').val(times[id].c);
-  $('#nomeResponsavel').val(times[id].nomeR);
-  $('#cpfResponsavel').val(times[id].cpfR);
-}
 
+  console.log(id);
+  console.log('listando');
+  var time = firebase.database().ref().child('times/'+id);
+  time.on('value', function (item) {
+    console.log(item.val());
+    $('#nomeTime').val(item.val().nome)
+    $('#cnpj').val(item.val().cnpj);
+    $('#nomeResponsavel').val(item.val().responsavel);
+    $('#cpfResponsavel').val(item.val().cpf);
+    $('label').addClass('active')
+  });
 
+  $ (document).ready(function(){
+    $(".add").on("click", function(event){
+      save($(this).parent("form").attr("id"));
+      event.preventDefault();
+    });
+    function save(docName){
+      var inputs = $('#' + docName + ' input');
+      var selects = $('#' + docName + ' select');
+      var obj = {}
 
-
-$('#editarTime').submit(function (event){
-  var times = JSON.parse(localStorage.getItem('Times'));
-  var verificarDisponibilidade;
-  if (times[id].c != $('#cnpj').val()) {
-    for (var i = 0; i < times.length; i++) {
-      if (times[i].c == $('#cnpj').val()) {
-        verificarDisponibilidade = true;
+      for (let i = 0; i < inputs.length; i++) {
+        obj[inputs.eq(i).attr('name')] = inputs.eq(i).val();
+        inputs.eq(i).val("");
       }
+
+      if (selects.length > 0) {
+        for (let i = 0; i < selects.length; i++) {
+          obj[selects.eq(i).attr('name')] = selects.eq(i).val();
+          console.log(selects.eq(i).attr('id'));
+          selects.eq(i).val("");
+        }
+      }
+
+      delete obj.undefined;
+      obj.data = new Date();
+      console.log(obj);
+      time.update(obj);
+      location.reload();
     }
-  }
-
-  if (verificarDisponibilidade == true) {
-    alert ('Time ja esta cadastrado');
-    verificarDisponibilidade = false;
-  } else {
-    times[id].nome = $('#nomeTime').val()
-    times[id].c = $('#cnpj').val();
-    times[id].nomeR = $('#nomeResponsavel').val();
-    times[id].cpfR = $('#cpfResponsavel').val();
-    times[id].pontos = times[id].pontos
-    localStorage.setItem('Times', JSON.stringify(times))
-
-    window.location.href = "view.html"
-  }
-  event.preventDefault();
-});
-
-function excluir(){
-  time = JSON.parse(localStorage.getItem('Times'));
-  times.splice(id,1)
-  localStorage.setItem('Times', JSON.stringify(times))
-  window.location.href = "view.html"
+  });
 }

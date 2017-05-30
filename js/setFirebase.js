@@ -12,12 +12,18 @@ $ (document).ready(function(){
       obj[inputs.eq(i).attr('name')] = inputs.eq(i).val();
       inputs.eq(i).val("");
     }
-    for (let i = 0; i < selects.length; i++) {
-      obj[selects.eq(i).attr('name')] = inputs.eq(i).val();
-      selects.eq(i).val("");
-    }
-    obj.data = new Date();
 
+    if (selects.length > 0) {
+      for (let i = 0; i < selects.length; i++) {
+        obj[selects.eq(i).attr('name')] = selects.eq(i).val();
+        console.log(selects.eq(i).attr('id'));
+        selects.eq(i).val("");
+      }
+    }
+
+    delete obj.undefined;
+    obj.data = new Date();
+    console.log(obj);
     firebase.database().ref().child(docName).push(obj);
   }
 });

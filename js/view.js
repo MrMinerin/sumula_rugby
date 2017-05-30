@@ -1,5 +1,5 @@
 window.addEventListener("load", showJogos(JSON.parse(localStorage.getItem('Jogos'))), false);
-window.addEventListener("load", showTimes(JSON.parse(localStorage.getItem('Times'))), false);
+// window.addEventListener("load", showTimes(JSON.parse(localStorage.getItem('Times'))), false);
 window.addEventListener("load", hanking(JSON.parse(localStorage.getItem('Times'))), false);
 window.addEventListener("load", mostrarAtletas(JSON.parse(localStorage.getItem('Atletas'))), false);
 
@@ -48,29 +48,40 @@ function hanking(times){
 
 // --------------------------------------Carregar Times --------------------------------
 
-function showTimes(loadTimes){
+$(window).on('load', function() {
   var listar= $('#mostrarTimes');
   listar.html('');
-  if (loadTimes == null) {
-    listar.append('<h5 class="col s12 center-align"> Nenhum time registrado</h5>');
-  } else {
-    for (var i = 0; i < loadTimes.length; i++) {
-      listar.append('<h5 class="col s7">'+loadTimes[i].nome+'</h5><button class="waves-effect waves-light btn btn-time col s2" onclick="showAtletas('+(i)+')"><i class="material-icons left">view_list</i></button><a onclick="visualizarTime('+i+')" href="#modalT'+(i)+'" rel ="modalTime" class="waves-effect waves-light btn btn-time col s2 offset-s1"><i class="material-icons left">visibility</i></a>');
+  console.log('listando');
+  firebase.database().ref('times').on('value', function (snapshot) {
+    snapshot.forEach(function (item) {
+      listar.append('<h5 class="col s7">'+item.val().nome+'</h5></button><a href="editarTime.html#'+item.key+'" class="waves-effect waves-light btn btn-time col s2 offset-s1"><i class="material-icons left">visibility</i></a>');
+    });
+  });
+});
 
-    }
-  }
-}
-
-
-
-function visualizarTime(idTime){
-
-  var modaisTime = $('#modaisTime');
-  var t = JSON.parse(localStorage.getItem('Times'));
-  modaisTime.html('');
-  modaisTime.append('<div id="modalT'+ idTime +'" class="modal modal-fixed-footer"><div class="modal-content"><h4 class="center-align">Time</h4><li class="divider1"></li><p class="flow-text col s12 m6">Nome: '+t[idTime].nome+'</p><p class="flow-text col s12 m6">CNPJ: '+t[idTime].c+'</p><p class="flow-text col s12 m6">Responsável: '+t[idTime].nomeR+'</p><p class="flow-text col s12 m6">CPF: '+t[idTime].cpfR+'</p></div><div class="modal-footer"><a href="editarTime.html#'+ idTime +'"class="modal-action waves-effect waves-red btn-flat">Editar</a></div></div></div>');
-  $('.modal').modal();
-}
+// function showTimes(loadTimes){
+//   var listar= $('#mostrarTimes');
+//   listar.html('');
+//   if (loadTimes == null) {
+//     listar.append('<h5 class="col s12 center-align"> Nenhum time registrado</h5>');
+//   } else {
+//     for (var i = 0; i < loadTimes.length; i++) {
+//       listar.append('<h5 class="col s7">'+loadTimes[i].nome+'</h5><button class="waves-effect waves-light btn btn-time col s2" onclick="showAtletas('+(i)+')"><i class="material-icons left">view_list</i></button><a onclick="visualizarTime('+i+')" href="#modalT'+(i)+'" rel ="modalTime" class="waves-effect waves-light btn btn-time col s2 offset-s1"><i class="material-icons left">visibility</i></a>');
+//
+//     }
+//   }
+// }
+//
+//
+//
+// function visualizarTime(idTime){
+//
+//   var modaisTime = $('#modaisTime');
+//   var t = JSON.parse(localStorage.getItem('Times'));
+//   modaisTime.html('');
+//   modaisTime.append('<div id="modalT'+ idTime +'" class="modal modal-fixed-footer"><div class="modal-content"><h4 class="center-align">Time</h4><li class="divider1"></li><p class="flow-text col s12 m6">Nome: '+t[idTime].nome+'</p><p class="flow-text col s12 m6">CNPJ: '+t[idTime].c+'</p><p class="flow-text col s12 m6">Responsável: '+t[idTime].nomeR+'</p><p class="flow-text col s12 m6">CPF: '+t[idTime].cpfR+'</p></div><div class="modal-footer"><a href="editarTime.html#'+ idTime +'"class="modal-action waves-effect waves-red btn-flat">Editar</a></div></div></div>');
+//   $('.modal').modal();
+// }
 
 // ------------------------------------Carregar Atletas------------------------------------
 

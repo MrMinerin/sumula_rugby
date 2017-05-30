@@ -1,7 +1,7 @@
 
-  var list = $('.list-time');
-  for (var i = 0; i < list.length; i++) {
-    listAll(list[i]);
+var list = $('.list-time');
+for (var i = 0; i < list.length; i++) {
+  listAll(list[i]);
 
 
   function listAll(list) {
@@ -16,6 +16,7 @@
         option.appendChild(document.createTextNode(item.val().nome));
 
         list.appendChild(option);
+
         c();
 
 
