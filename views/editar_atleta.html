@@ -13,27 +13,7 @@
   <title>Súmula</title>
 </head>
 <body>
-  <header>
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="cadastrarTime.html">Cadastrar Time</a></li>
-      <li><a href="cadastrarAtleta.html">Cadastrar Atleta</a></li>
-      <li><a href="cadastrarJogos.html">Cadastrar Jogo</a></li>
-    </ul>
-    <div class="fixed">
-      <nav class="teal z-depth-5">
-        <div class="nav-wraper">
-          <a href="#" class="brand-logo center">Rugby</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="view.html">Início</a></li>
-            <li><a href="view_times.html">Times</a></li>
-            <li><a href="view_atletas.html">Atletas</a></li>
-            <!-- Dropdown Trigger -->
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Cadastrar<i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <header id="layout"></header>
   <main>
     <div class="row container">
       <div class="col s12 topo z-depth-5">
@@ -99,13 +79,11 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/layout/layout.js"></script>
     <script type="text/javascript" src="../js/editarAtleta.js"></script>
     <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
     <script type="text/javascript">
       $('#cpf').mask('999.999.999-99', {reverse: true});
-      $(document).ready(function (){
-        $(".dropdown-button").dropdown();
-      })
     </script>
   </body>
   </html>

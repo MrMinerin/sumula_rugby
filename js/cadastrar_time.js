@@ -1,6 +1,6 @@
 $ (document).ready(function(){
-  $(".add").on("click", function(event){
-    save($(this).parent("form").attr("id"));
+  $(".add").submit(function(event){
+    save($(this).attr("id"));
     event.preventDefault();
   });
   function save(docName){
@@ -19,5 +19,7 @@ $ (document).ready(function(){
     obj.data = new Date();
 
     firebase.database().ref().child(docName).push(obj);
+
+    $('label').removeClass('active')
   }
 });

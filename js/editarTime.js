@@ -2,7 +2,7 @@ window.addEventListener("load", editTime(), false);
 var id;
 
 function editTime(){
-  id = window.location.hash.substring(1);
+  id = window.location.search.substring(1);
 
   console.log(id);
   console.log('listando');
