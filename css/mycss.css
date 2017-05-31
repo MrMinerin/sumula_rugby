@@ -1,3 +1,7 @@
+input:disabled{
+  color: #fff;
+}
+
 .error{
   color: red;
 }

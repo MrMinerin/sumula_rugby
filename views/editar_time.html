@@ -33,28 +33,40 @@
     <div class="row container">
       <div class="col s12 topo z-depth-5">
         <h4 class="center-align">Editar Time</h4>
-        <form id="editarTime" class="col s12">
+        <form id="editarTime" class="add col s12">
 
 
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="nomeTime" name="nome" class="validate" required>
+            <input type="text" disabled id="nomeTime" name="nome" class="validate" required>
             <label for="nomeTime">Nome</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="cnpj" name="cnpj" class="validate" required>
+            <input type="text" disabled id="cnpj" name="cnpj" class="validate" required>
             <label for="cnpj">CNPJ</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="nomeResponsavel" name="responsavel" class="validate" required>
+            <input type="text" disabled id="nomeResponsavel" name="responsavel" class="validate" required>
             <label for="nomeResponsavel">Nome do Responśavel</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="cpfResponsavel" name="cpf" class="validate" required>
+            <input type="text" disabled id="cpfResponsavel" name="cpf" class="validate" required>
             <label for="cpfResponsavel">CPF do Responsável</label>
           </div>
-          <button class="btn waves-effect waves-light add" type="button" name="action">Alterar
-            <i class="material-icons right">send</i>
-          </button>
+          <div class="col s12">
+            <button class="btn waves-effect waves-light editar" type="button">Editar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+
+          <div class="col s6">
+            <button class="btn waves-effect waves-light cancelar" type="button">Cancelar</button>
+
+          </div>
+          <div class="col s6 right-align">
+            <button class="btn waves-effect waves-light enviar " type="submit" >Enviar Alterações
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
           <li class="espaco"></li>
         </form>
 
@@ -69,12 +81,12 @@
     <script type="text/javascript" src="../js/animation.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/layout/layout.js"></script>
-    <script type="text/javascript" src="../js/editarTime.js"></script>
+    <script type="text/javascript" src="../js/editar_time.js"></script>
     <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
     <script type="text/javascript">
-      $('#cpfResponsavel').mask('999.999.999-99');
-      $('#cnpj').mask('999.999.999/999-999');
+    $('#cpfResponsavel').mask('999.999.999-99');
+    $('#cnpj').mask('999.999.999/999-999');
 
     </script>
-</body>
-</html>
+  </body>
+  </html>

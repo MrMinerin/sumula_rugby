@@ -17,8 +17,8 @@ function editTime(){
   });
 
   $ (document).ready(function(){
-    $(".add").on("click", function(event){
-      save($(this).parent("form").attr("id"));
+    $(".add").submit(function(event){
+      save($(this).attr("id"));
       event.preventDefault();
     });
     function save(docName){
@@ -47,3 +47,24 @@ function editTime(){
     }
   });
 }
+
+$(document).ready(function(){
+  $('.cancelar').hide();
+  $('.enviar').hide();
+})
+
+$('.cancelar').click(function(){
+  $('input').prop("disabled", true);
+  $(this).hide();
+  $('.enviar').hide();
+  $('.editar').show();
+})
+
+
+
+$('.editar').click(function(){
+  $('input').prop("disabled", false);
+  $(this).hide();
+  $('.cancelar').show();
+  $('.enviar').show();
+})
