@@ -31,24 +31,22 @@
 
   <main>
     <div class="row container">
-      <div class="col s12 topo z-depth-5">
-        <h4 class="center-align">Editar Time</h4>
+      <div class="col s6 topo z-depth-1">
+        <h4 class="center-align">Time</h4>
         <form id="editarTime" class="add col s12">
-
-
-          <div class="input-field col s12 m12 l6">
+          <div class="input-field col s12">
             <input type="text" disabled id="nomeTime" name="nome" class="validate" required>
             <label for="nomeTime">Nome</label>
           </div>
-          <div class="input-field col s12 m12 l6">
+          <div class="input-field col s12">
             <input type="text" disabled id="cnpj" name="cnpj" class="validate" required>
             <label for="cnpj">CNPJ</label>
           </div>
-          <div class="input-field col s12 m12 l6">
+          <div class="input-field col s12">
             <input type="text" disabled id="nomeResponsavel" name="responsavel" class="validate" required>
             <label for="nomeResponsavel">Nome do Responśavel</label>
           </div>
-          <div class="input-field col s12 m12 l6">
+          <div class="input-field col s12">
             <input type="text" disabled id="cpfResponsavel" name="cpf" class="validate" required>
             <label for="cpfResponsavel">CPF do Responsável</label>
           </div>
@@ -69,24 +67,50 @@
           </div>
           <li class="espaco"></li>
         </form>
+      </div>
+
+      <div class="col s6 topo z-depth-1">
+        <h4 class="center-align">Atletas</h4>
+
+        <form id="form_ecalar_usuario" class="col s12 add">
+          <li class="espaco"></li>
+          <div class="list-atleta col s12"></div>
+          <li class="espaco"></li>
+          <div class="col s12">
+            <button class="btn waves-effect waves-light escalar" type="button">Escalar</button>
+          </div>
+          <div class="col s6">
+            <button class="btn waves-effect waves-light cancelar-escalacao" type="button">Cancelar</button>
+          </div>
+          <div class="col s6 right-align">
+            <button class="btn waves-effect waves-light enviar-escalacao" type="submit">Enviar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <li class="espaco"></li>
+        </form>
 
       </div>
-    </main>
+
+    </div>
+  </main>
 
 
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-    <script type="text/javascript" src="../banco/conexao.js"></script>
-    <script type="text/javascript" src="../js/animation.js"></script>
-    <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <script type="text/javascript" src="../js/layout/layout.js"></script>
-    <script type="text/javascript" src="../js/editar_time.js"></script>
-    <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
-    <script type="text/javascript">
-    $('#cpfResponsavel').mask('999.999.999-99');
-    $('#cnpj').mask('999.999.999/999-999');
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script type="text/javascript" src="../banco/conexao.js"></script>
+  <script type="text/javascript" src="../js/animation.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
+  <script type="text/javascript" src="../js/layout/layout.js"></script>
+  <script type="text/javascript" src="../js/editar_time.js"></script>
+  <script type="text/javascript" src="../js/escalar_time.js"></script>
+  <script type="text/javascript" src="../js/listar_atletas.js"></script>
+  <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
+  <script type="text/javascript">
+  $('#cpfResponsavel').mask('999.999.999-99');
+  $('#cnpj').mask('999.999.999/999-999');
 
-    </script>
-  </body>
-  </html>
+  </script>
+</body>
+</html>

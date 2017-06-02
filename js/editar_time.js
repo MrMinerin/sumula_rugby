@@ -54,7 +54,7 @@ $(document).ready(function(){
 })
 
 $('.cancelar').click(function(){
-  $('input').prop("disabled", true);
+  $('#editarTime input').prop("disabled", true);
   $(this).hide();
   $('.enviar').hide();
   $('.editar').show();

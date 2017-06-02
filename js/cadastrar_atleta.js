@@ -3,9 +3,7 @@ $ (document).ready(function(){
     save($(this).attr("id"));
     event.preventDefault();
   });
-
-
-function save(docName){
+  function save(docName){
     var inputs = $('#' + docName + ' input');
     var selects = $('#' + docName + ' select');
     var obj = {}
@@ -15,13 +13,19 @@ function save(docName){
       inputs.eq(i).val("");
     }
     for (let i = 0; i < selects.length; i++) {
-      obj[selects.eq(i).attr('name')] = inputs.eq(i).val();
+      obj[selects.eq(i).attr('name')] = selects.eq(i).val();
       selects.eq(i).val("");
     }
     obj.data = new Date();
     delete obj.undefined;
+    console.log(obj);
     firebase.database().ref().child(docName).push(obj);
 
     $('label').removeClass('active')
   }
+});
+
+
+$(document).ready(function(){
+  $('select').material_select();
 });
