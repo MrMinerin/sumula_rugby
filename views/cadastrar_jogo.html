@@ -22,23 +22,15 @@
           <div class="input-field col s12 m12 l12">
             <input type="date" id="dataJogo" class="datepicker" required>
           </div>
-          <div class="input-field col s12 m12 l5">
-            <select id="selecaoTime1" required>
+          <div class="input-field col s12 m12 l6">
+            <select id="selecaoTime1" required class="list-time">
               <option value="" disabled selected>Time</option>
             </select>
           </div>
-          <div class="input-field col s12 m12 l1">
-            <input type="text" id="ponto1" class="validate" required>
-            <label for="ponto1">Pontos</label>
-          </div>
-          <div class="input-field col s12 m12 l5">
-            <select id="selecaoTime2" required>
+          <div class="input-field col s12 m12 l6">
+            <select id="selecaoTime2" required class="list-time">
               <option value="" disabled selected>Time</option>
             </select>
-          </div>
-          <div class="input-field col s12 m12 l1">
-            <input type="text" id="ponto2" class="validate" required>
-            <label for="ponto2">Pontos</label>
           </div>
           <div class="input-field col s12 m12 l12">
             <input type="text" id="juiz1" class="validate" required>
@@ -71,9 +63,13 @@
 
 
     <!--Import jQuery before materialize.js-->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="../banco/conexao.js"></script>
     <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/layout/layout.js"></script>
     <script type="text/javascript" src="../js/cadastrarJogo.js"></script>
+    <script type="text/javascript" src="../js/listar_times.js">
+    </script>
   </body>
   </html>

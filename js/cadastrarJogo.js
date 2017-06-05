@@ -1,32 +1,3 @@
-// --------------------------Carregando Times------------------------------------------------
-window.addEventListener("load", optionTime1(JSON.parse(localStorage.getItem('Times'))), false);
-window.addEventListener("load", optionTime2(JSON.parse(localStorage.getItem('Times'))), false);
-
-function optionTime1(loadTimes){
-  listar = $('#selecaoTime1');
-  if (loadTimes === null) {
-    listar.append('<option value="" disabled>Nenhum Time Cadastrado</option>');
-  } else {
-    for (var i = 0; i < loadTimes.length; i++) {
-      listar.append('<option value="' + i + '">' + loadTimes[i].nome + '</option>');
-    }
-  }
-}
-
-function optionTime2(loadTimes){
-  listar = $('#selecaoTime2');
-  if (loadTimes === null) {
-    listar.append('<option value="" disabled>Nenhum Time Cadastrado</option>');
-  } else {
-    for (var i = 0; i < loadTimes.length; i++) {
-      listar.append('<option value="' + i + '">' + loadTimes[i].nome + '</option>');
-    }
-  }
-}
-// ------------------------------------------------------------------------------------------
-
-
-
 $(document).ready(function(){
   // Agora verificar o cadastro de atleta -----------------------
   $('#cadastroJogo').submit(

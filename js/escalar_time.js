@@ -15,8 +15,8 @@ $('#form_ecalar_usuario').submit(function(){
     }
   }
   console.log(escalacao);
-  var keyTime = firebase.database().ref().child('times/'+id);
-  var keyAtleta = firebase.database().ref().child('atletas/');
+  var keyTime = app.child('times/'+id);
+  var keyAtleta = app.child('atletas/');
 
   keyTime.child('escalacao').update(escalacao);
 

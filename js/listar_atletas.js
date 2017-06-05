@@ -1,6 +1,5 @@
 var id = window.location.search.substring(1);
 var list = $('.list-atleta');
-const app = firebase.database().ref();
 
 
 $(document).ready(function(){
