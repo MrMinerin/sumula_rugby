@@ -21,22 +21,26 @@
         <h4 class="center-align">Cadastro de Atleta</h4>
         <form id="atletas" class="col s12 add">
           <div class="input-field col s12 m12 l6">
-            <select id="posicao" name="posicao">
-              <option value="" disabled selected>Selecione uma posição</option>
-              <option value="Abertura">Abertura</option>
-              <option value="Asa Aberto">Asa Aberto</option>
-              <option value="Asa Fechado">Asa Fechado</option>
-              <option value="Fullback">Fullback</option>
-              <option value="Hooker">Hooker</option>
-              <option value="Oitavo">Oitavo</option>
-              <option value="Pilar">Pilar</option>
-              <option value="Ponta Direita">Ponta Direita</option>
-              <option value="Ponta Esquerda">Ponta Esquerda</option>
-              <option value="Primeiro Centro">Primeiro Centro</option>
-              <option value="Segunda Linha">Segunda Linha</option>
-              <option value="Segundo Centro">Segundo Centro</option>
-              <option value="Scrum-Half">Scrum-Half</option>
-              <option value="Substituto">Substituto</option>
+            <select id="time" name="time" class="list-time" required>
+            </select>
+            <label for="posicao">Time</label>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <select id="posicao" name="posicao" required>
+              <option value="ABERTURA">ABERTURA</option>
+              <option value="ASA ABERTO">ASA ABERTO</option>
+              <option value="ASA FECHADO">ASA FECHADO</option>
+              <option value="FULLBACK">FULLBACK</option>
+              <option value="HOOKER">HOOKER</option>
+              <option value="OITAVA">OITAVA</option>
+              <option value="PILAR">PILAR</option>
+              <option value="PONTA DIREITA">PONTA DIREITA</option>
+              <option value="PONTA ESQUERDA">PONTA ESQUERDA</option>
+              <option value="PRIMEIRO CENTRO">PRIMEIRO CENTRO</option>
+              <option value="SEGUNDA LINHA">SEGUNDA LINHA</option>
+              <option value="SEGUNDO CENTRO">SEGUNDO CENTRO</option>
+              <option value="SCRUM-HALF">SCRUM-HALF</option>
+              <option value="SUBSTITUTO">SUBSTITUTO</option>
             </select>
             <label for="posicao">Posição</label>
           </div>
@@ -80,17 +84,20 @@
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.validate.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
     <script type="text/javascript" src="../banco/conexao.js"></script>
+
     <script type="text/javascript" src="../js/listar_times.js"></script>
     <script type="text/javascript" src="../js/layout/layout.js"></script>
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script type="text/javascript" src="../js/cadastrar_atleta.js"></script>
-    <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
 
     <script type="text/javascript">
     $('#cpf').mask('999.999.999-99');
-    $('#peso').mask('009,999',{reverse: true});
+    $('#peso').mask('009,999');
     $('#altura').mask('9,99')
     $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month

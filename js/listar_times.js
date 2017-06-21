@@ -8,20 +8,25 @@ for (var i = 0; i < list.length; i++) {
     console.log(list);
     console.log('listando');
     app.child('times').on('value', function (snapshot) {
-
-      console.log('teste');
-      snapshot.forEach(function (item) {
+      if (snapshot == undefined || snapshot == null) {
         var option = document.createElement('option');
-        option.value = item.key;
-
-        option.append(document.createTextNode(item.val().nome));
-
+        option.append(document.createTextNode('Nenhum time encontrado'));
         list.append(option);
-
         c();
+      } else {
 
+        snapshot.forEach(function (item) {
+          var option = document.createElement('option');
+          option.value = item.key;
 
-      });
+          option.append(document.createTextNode(item.val().nome));
+
+          list.append(option);
+
+          c();
+
+        });
+      }
     });
   }
 }

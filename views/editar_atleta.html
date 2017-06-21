@@ -17,58 +17,75 @@
   <main>
     <div class="row container">
       <div class="col s12 topo z-depth-5">
-        <h4 class="center-align">Cadastro de Atleta</h4>
-        <form id="editarAtleta" class="col s12">
+        <h4 class="center-align">Editar Atleta</h4>
+        <form id="atletas" class="col s12 add">
           <div class="input-field col s12 m12 l6">
-            <select id="selecaoTime" required>
-              <option value="" disabled selected>Time</option>
+            <select id="time" disabled name="time" class="list-time" required>
             </select>
+            <label for="posicao">Time</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <select id="posicao" required>
-              <option value="" disabled selected>Posição</option>
-              <option value="Abertura">Abertura</option>
-              <option value="Asa Aberto">Asa Aberto</option>
-              <option value="Asa Fechado">Asa Fechado</option>
-              <option value="Fullback">Fullback</option>
-              <option value="Hooker">Hooker</option>
-              <option value="Oitavo">Oitavo</option>
-              <option value="Pilar">Pilar</option>
-              <option value="Ponta Direita">Ponta Direita</option>
-              <option value="Ponta Esquerda">Ponta Esquerda</option>
-              <option value="Primeiro Centro">Primeiro Centro</option>
-              <option value="Segunda Linha">Segunda Linha</option>
-              <option value="Segundo Centro">Segundo Centro</option>
-              <option value="Scrum-Half">Scrum-Half</option>
-              <option value="Substituto">Substituto</option>
+            <select id="posicao" disabled name="posicao" required>
+              <option value="ABERTURA">ABERTURA</option>
+              <option value="ASA ABERTO">ASA ABERTO</option>
+              <option value="ASA FECHADO">ASA FECHADO</option>
+              <option value="FULLBACK">FULLBACK</option>
+              <option value="HOOKER">HOOKER</option>
+              <option value="OITAVA">OITAVA</option>
+              <option value="PILAR">PILAR</option>
+              <option value="PONTA DIREITA">PONTA DIREITA</option>
+              <option value="PONTA ESQUERDA">PONTA ESQUERDA</option>
+              <option value="PRIMEIRO CENTRO">PRIMEIRO CENTRO</option>
+              <option value="SEGUNDA LINHA">SEGUNDA LINHA</option>
+              <option value="SEGUNDO CENTRO">SEGUNDO CENTRO</option>
+              <option value="SCRUM-HALF">SCRUM-HALF</option>
+              <option value="SUBSTITUTO">SUBSTITUTO</option>
             </select>
+            <label for="posicao">Posição</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="apelido" class="validate" required>
+            <input type="text" disabled id="apelido" name="apelido" class="validate" required>
             <label for="apelido">Apelido</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="nome" class="validate" required>
+            <input type="text" disabled id="nome" name="nome" class="validate" required>
             <label for="nome">Nome</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="text" id="sobrenome" class="validate" required>
+            <input type="text" disabled id="sobrenome" name="sobrenome" class="validate" required>
             <label for="sobrenome">Sobrenome</label>
           </div>
           <div class="input-field col s12 m12 l6">
-            <input type="date" id="nascimento" class="datepicker" required>
-            <label for="nascimento"></label>
+            <input type="date" disabled id="nascimento" name="nascimento" class="datepicker" required>
+            <label for="nascimento">Data de Nascimento</label>
           </div>
-          <div class="input-field col s12 m12 l12">
-            <input type="text" id="cpf" class="validate" minlength="11" required>
+          <div class="input-field col s12 m12 l6">
+            <input type="text" disabled id="cpf" class="validate" name="cpf" minlength=14 required>
             <label for="cpf">CPF</label>
           </div>
-          <button class="btn waves-effect waves-light" type="submit" name="action">Alterar
-            <i class="material-icons right">send</i>
-          </button>
-          <button class="btn waves-effect waves-light offset-s6" type="button" onclick="excluir()"name="action">Exluir
-            <i class="material-icons right">send</i>
-          </button>
+          <div class="input-field col s12 m12 l6">
+            <input type="text" disabled id="altura" class="validate" name="altura" required>
+            <label for="altura">Altura (M)</label>
+          </div>
+          <div class="input-field col s12 m12 l6">
+            <input type="text" disabled id="peso" class="validate" name="peso" required>
+            <label for="peso">Peso (Kg)</label>
+          </div>
+          <div class="col s12">
+            <button class="btn waves-effect waves-light editar" type="button">Editar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+
+          <div class="col s6">
+            <button class="btn waves-effect waves-light cancelar" type="button">Cancelar</button>
+
+          </div>
+          <div class="col s6 right-align">
+            <button class="btn waves-effect waves-light enviar " type="submit" >Enviar Alterações
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
           <li class="espaco"></li>
         </form>
 
@@ -78,12 +95,25 @@
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="../lib/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <script type="text/javascript" src="../js/layout/layout.js"></script>
-    <script type="text/javascript" src="../js/editarAtleta.js"></script>
     <script type="text/javascript" src="../lib/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery.validate.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="../banco/conexao.js"></script>
+
+    <script type="text/javascript" src="../js/listar_times.js"></script>
+    <script type="text/javascript" src="../js/layout/layout.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/editar_atleta.js"></script>
+
     <script type="text/javascript">
-      $('#cpf').mask('999.999.999-99', {reverse: true});
+    $('#cpf').mask('999.999.999-99');
+    $('#peso').mask('009,999');
+    $('#altura').mask('9,99')
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
     </script>
   </body>
   </html>

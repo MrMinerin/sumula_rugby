@@ -6,7 +6,7 @@ function editTime(){
 
   console.log(id);
   console.log('listando');
-  var time = firebase.database().ref().child('times/'+id);
+  var time = app.child('times/'+id);
   time.on('value', function (item) {
     console.log(item.val());
     $('#nomeTime').val(item.val().nome)
@@ -14,6 +14,7 @@ function editTime(){
     $('#nomeResponsavel').val(item.val().responsavel);
     $('#cpfResponsavel').val(item.val().cpf);
     $('label').addClass('active');
+    $('input').removeClass('valid');
   });
 
   $ (document).ready(function(){
@@ -22,21 +23,12 @@ function editTime(){
       event.preventDefault();
     });
     function save(docName){
-      var inputs = $('#' + docName + ' input');
-      var selects = $('#' + docName + ' select');
+      var elementos = $('#' + docName + ' input, select');
       var obj = {}
 
-      for (let i = 0; i < inputs.length; i++) {
-        obj[inputs.eq(i).attr('name')] = inputs.eq(i).val();
-        inputs.eq(i).val("");
-      }
-
-      if (selects.length > 0) {
-        for (let i = 0; i < selects.length; i++) {
-          obj[selects.eq(i).attr('name')] = selects.eq(i).val();
-          console.log(selects.eq(i).attr('id'));
-          selects.eq(i).val("");
-        }
+      for (let i = 0; i < elementos.length; i++) {
+        obj[elementos.eq(i).attr('name')] = elementos.eq(i).val().toUpperCase();
+        elementos.eq(i).val("");
       }
 
       delete obj.undefined;
@@ -58,6 +50,7 @@ $('.cancelar').click(function(){
   $(this).hide();
   $('.enviar').hide();
   $('.editar').show();
+  editTime();
 })
 
 

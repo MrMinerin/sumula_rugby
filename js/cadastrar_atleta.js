@@ -1,26 +1,25 @@
 $ (document).ready(function(){
   $(".add").submit(function(event){
+    upCase();
     save($(this).attr("id"));
     event.preventDefault();
   });
   function save(docName){
-    var inputs = $('#' + docName + ' input');
-    var selects = $('#' + docName + ' select');
+    var elementos = $('#' + docName + ' input, select');
+    var time = $('#time').val();
     var obj = {}
 
-    for (let i = 0; i < inputs.length; i++) {
-      obj[inputs.eq(i).attr('name')] = inputs.eq(i).val();
-      inputs.eq(i).val("");
+    for (let i = 0; i < elementos.length; i++) {
+      obj[elementos.eq(i).attr('name')] = elementos.eq(i).val();
+      elementos.eq(i).val("");
     }
-    for (let i = 0; i < selects.length; i++) {
-      obj[selects.eq(i).attr('name')] = selects.eq(i).val();
-      selects.eq(i).val("");
-    }
+
     obj.data = new Date();
     delete obj.undefined;
     console.log(obj);
-    firebase.database().ref().child(docName).push(obj);
-
+    var keyAt = app.child(docName).push(obj).key;
+    addInfo(docName, keyAt);
+    addAtTime(time, keyAt);
     $('label').removeClass('active')
   }
 });
@@ -29,3 +28,29 @@ $ (document).ready(function(){
 $(document).ready(function(){
   $('select').material_select();
 });
+
+function addInfo(docName, atleta) {
+  var informacoes = {
+    jogos: 0,
+    pts: 0,
+    try: 0,
+    conv: 0,
+    drop: 0,
+    penal: 0,
+    amar: 0,
+    verm: 0
+  }
+  app.child(docName +'/'+atleta+'/informacoes').update(informacoes);
+}
+
+function addAtTime(time, atleta) {
+  var jogadores = {}
+  jogadores[atleta] = true;
+  app.child('times/' + time).child('jogadores').update(jogadores);
+}
+
+function upCase() {
+  $("#nome").val().toUpperCase();
+  $("#sobrenome").val().toUpperCase();
+  $("#apelido").val().toUpperCase();
+}

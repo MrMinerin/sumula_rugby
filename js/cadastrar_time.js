@@ -5,18 +5,13 @@ $ (document).ready(function(){
   });
 
 
-function save(docName){
-    var inputs = $('#' + docName + ' input');
-    var selects = $('#' + docName + ' select');
+  function save(docName){
+    var elementos = $('#' + docName + ' input, select');
     var obj = {}
 
-    for (let i = 0; i < inputs.length; i++) {
-      obj[inputs.eq(i).attr('name')] = inputs.eq(i).val();
-      inputs.eq(i).val("");
-    }
-    for (let i = 0; i < selects.length; i++) {
-      obj[selects.eq(i).attr('name')] = inputs.eq(i).val();
-      selects.eq(i).val("");
+    for (let i = 0; i < elementos.length; i++) {
+      obj[elementos.eq(i).attr('name')] = elementos.eq(i).val();
+      elementos.eq(i).val("");
     }
     obj.data = new Date();
     delete obj.undefined;

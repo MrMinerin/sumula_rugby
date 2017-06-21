@@ -11,28 +11,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="../css/mycss.css">
   <title>Súmula</title>
+  <style media="screen">
+    a {color: #000000}
+  </style>
 </head>
 <body>
   <header id="layout"></header>
   <main >
-    <div class="row   container">
+    <div class="row container">
       <li class="espaco"></li>
-      <div id="atletas" class="col s12 z-depth-1">
+      <div id="atletas" class="col s12 z-depth-1 center-align">
         <h3 class="center-align">Atletas</h3>
         <li class="divider1"></li>
-        <div class="input-field">
-          <input id="searchA" type="search" required>
-          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
+        <div class="col s4">
+          <div class="input-field center-align z-depth-3">
+            <input id="search" type="search" required>
+            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+            <i class="material-icons">close</i>
+          </div>
         </div>
-
         <li class="espaco"></li>
-        <div id="mensagemA" class="center-align"></div>
-        <div id="mostrarAtletas" class="row"></div>
+        <div id="montrar-atletas" class="row"></div>
       </div>
     </div>
-    <div id="modaisTime" class="row"></div>
-    <div id="modaisAtleta" class="row"></div>
   </main>
 
 
@@ -42,7 +43,7 @@
   <script type="text/javascript" src="../banco/conexao.js"></script>
   <script type="text/javascript" src="../js/layout/layout.js"></script>
   <script type="text/javascript" src="../js/materialize.min.js"></script>
-  <script type="text/javascript" src="../js/view.js"></script>
+  <script type="text/javascript" src="../js/view_atletas.js"></script>
 
 </body>
 </html>
