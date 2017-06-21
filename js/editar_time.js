@@ -32,7 +32,7 @@ function editTime(){
       }
 
       delete obj.undefined;
-      obj.data = new Date();
+      obj.data_ultima_alteracao = new Date();
       console.log(obj);
       time.update(obj);
       location.reload();

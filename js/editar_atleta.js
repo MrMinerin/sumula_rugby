@@ -25,7 +25,7 @@ $('.editar').click(function(){
 
 function editAtleta(){
   id = window.location.search.substring(1);
-
+  var time_atual;
   console.log(id);
   console.log('listando');
   var atleta = app.child('atletas/'+id);
@@ -42,6 +42,8 @@ function editAtleta(){
     $('#time').val(item.val().time);
     $('label').addClass('active');
     $('input').removeClass('valid');
+    time_atual = item.val().time;
+    console.log(time_atual);
   });
   $(document).ready(function(){
     $('select').material_select();
@@ -66,6 +68,7 @@ function editAtleta(){
       obj.data = new Date();
       console.log(obj);
       atleta.update(obj);
+      rmvAtTime(time_atual, id);
       addAtTime(time, id);
       location.reload();
     }
@@ -73,7 +76,15 @@ function editAtleta(){
 }
 
 function addAtTime(time, atleta) {
+  console.log('addjgtime');
   var jogadores = {}
   jogadores[atleta] = true;
   app.child('times/' + time).child('jogadores').update(jogadores);
+}
+
+function rmvAtTime(time,atleta) {
+  console.log('rmvjogtime');
+  var jogadores = {}
+  jogadores[atleta] = null;
+  app.child('times'/ + time).child('jogadores').set(jogadores);
 }

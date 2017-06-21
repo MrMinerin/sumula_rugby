@@ -7,7 +7,7 @@ for (var i = 0; i < list.length; i++) {
   function listAll(list) {
     console.log(list);
     console.log('listando');
-    app.child('times').on('value', function (snapshot) {
+    app.child('times').once('value', function (snapshot) {
       if (snapshot == undefined || snapshot == null) {
         var option = document.createElement('option');
         option.append(document.createTextNode('Nenhum time encontrado'));

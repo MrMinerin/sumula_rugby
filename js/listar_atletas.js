@@ -21,7 +21,7 @@ atletas.on('value', function(snapshot) {
     list.append('<h6 class="center-align">Nenhum Jogador Nesse Time</h6>')
   } else {
     list.html('<table>' +
-    '<thead ><th>Apelido</th> <th>Nome</th> <th>Posicão</th> </thead>' +
+    '<thead class="center-align"><th>Apelido</th> <th>Nome</th> <th>Posicão</th> </thead>' +
     '<tbody id="list-atleta-table">' +
     '</tbody>'+
     '</table>');
