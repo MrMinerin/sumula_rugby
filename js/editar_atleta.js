@@ -26,11 +26,11 @@ $('.editar').click(function(){
 function editAtleta(){
   id = window.location.search.substring(1);
   var time_atual;
-  console.log(id);
+  var time;
+  console.log('jogador: '+ id);
   console.log('listando');
   var atleta = app.child('atletas/'+id);
   atleta.on('value', function (item) {
-    console.log(item.val());
     $('#nome').val(item.val().nome)
     $('#apelido').val(item.val().apelido);
     $('#sobrenome').val(item.val().sobrenome);
@@ -42,21 +42,22 @@ function editAtleta(){
     $('#time').val(item.val().time);
     $('label').addClass('active');
     $('input').removeClass('valid');
-    time_atual = item.val().time;
-    console.log(time_atual);
+    console.log('time atual: ' + time_atual);
   });
+  
+  time_atual = $('#time').val();
+  $('#time').change(function(){
+    time = $('#time').val();
+  })
+
   $(document).ready(function(){
     $('select').material_select();
   });
 
   $ (document).ready(function(){
     $(".add").submit(function(event){
-      save($(this).attr("id"));
-      event.preventDefault();
-    });
-    function save(docName){
+      docName = $(this).attr("id");
       var elementos = $('#' + docName + ' input, select');
-      var time = $('#time').val();
       var obj = {}
 
       for (let i = 0; i < elementos.length; i++) {
@@ -68,23 +69,25 @@ function editAtleta(){
       obj.data = new Date();
       console.log(obj);
       atleta.update(obj);
-      rmvAtTime(time_atual, id);
       addAtTime(time, id);
-      location.reload();
-    }
+      rmvAtTime(time_atual, id);
+      // location.reload();
+      event.preventDefault();
+    });
   });
 }
 
 function addAtTime(time, atleta) {
   console.log('addjgtime');
-  var jogadores = {}
+  var jogadores = {};
   jogadores[atleta] = true;
   app.child('times/' + time).child('jogadores').update(jogadores);
 }
 
 function rmvAtTime(time,atleta) {
   console.log('rmvjogtime');
-  var jogadores = {}
-  jogadores[atleta] = null;
-  app.child('times'/ + time).child('jogadores').set(jogadores);
+  var jogadores = {};
+  jogadores[atleta] = false;
+  app.child('times/' + time).child('jogadores').update(jogadores);
+  console.log('update time antigo');
 }

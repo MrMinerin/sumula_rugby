@@ -9,13 +9,13 @@ $(window).on('load', function() {
 
 $('#search').keypress(function(event){
   if (event.which == 13){
-    search = ($(this).val().toUpperCase());
+    search = ($(this).val());
     listarAtletas(search, 'nome');
   }
 });
 
 function listarAtletas(search, order){
-  app.child('atletas').orderByChild(order).startAt(search).endAt(search+'\u00A0').once('value', function (snapshot) {
+  app.child('atletas').orderByChild(order).startAt(search).endAt(search+"\uf8ff").on('value', function (snapshot) {
     console.log('comecando');
     listar.html('');
     if (snapshot == null || snapshot == undefined){
