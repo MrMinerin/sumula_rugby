@@ -10,3 +10,4 @@ var config = {
 firebase.initializeApp(config);
 const app = firebase.database().ref();
 const storage = firebase.storage().ref();
+const auth = firebase.auth();
